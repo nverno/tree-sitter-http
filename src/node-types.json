@@ -1,5 +1,26 @@
 [
   {
+    "type": "code",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "code_snippet",
+    "named": true,
+    "fields": {
+      "code": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "code",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "comment",
     "named": true,
     "fields": {
@@ -418,7 +439,7 @@
       "required": false,
       "types": [
         {
-          "type": "variable",
+          "type": "code_snippet",
           "named": true
         }
       ]

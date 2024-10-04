@@ -1,5 +1,5 @@
 {
-  "name": "http",
+  "name": "pyhttp",
   "rules": {
     "document": {
       "type": "REPEAT",
@@ -1136,6 +1136,57 @@
                 "value": "\u0000"
               }
             ]
+          }
+        }
+      ]
+    },
+    "code": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PREC_LEFT",
+          "value": 0,
+          "content": {
+            "type": "REPEAT1",
+            "content": {
+              "type": "PATTERN",
+              "value": "."
+            }
+          }
+        }
+      ]
+    },
+    "code_snippet": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "PREC",
+            "value": 1,
+            "content": {
+              "type": "STRING",
+              "value": "{{"
+            }
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "code",
+          "content": {
+            "type": "SYMBOL",
+            "name": "code"
+          }
+        },
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "PREC",
+            "value": 1,
+            "content": {
+              "type": "STRING",
+              "value": "}}"
+            }
           }
         }
       ]
@@ -2313,7 +2364,7 @@
           },
           {
             "type": "SYMBOL",
-            "name": "variable"
+            "name": "code_snippet"
           },
           {
             "type": "PATTERN",

@@ -1,8 +1,16 @@
-.PHONY: test parse
+.PHONY: test parse parser lib
 
-build:
-	$(CC) -fPIC -c src/parser.c -o parser.o $(CFLAGS)
-	$(CC) -shared -o parser/http.so *.o
+src/parser.c:
+	@npm install
+
+parser:
+	@mkdir -p $@
+
+lib: parser/libtree-sitter-pyhttp.so
+
+parser/libtree-sitter-pyhttp.so: src/parser.c | parser
+	$(CC) -fPIC -c -Isrc $^ -o parser/parser.o
+	$(CC) -fPIC -shared -o $@ $(@D)/*.o
 
 test:
 	@tree-sitter generate
